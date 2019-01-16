@@ -1,0 +1,5 @@
+name: whale-env
+channels:
+  - defaults
+prefix: /home/paperspace/anaconda3/envs/whale-env
+
