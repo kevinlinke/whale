@@ -31,3 +31,21 @@ Here is the order in which I worked on the notebooks:
 9. [fluke detection](https://github.com/radekosmulski/whale/blob/master/fluke_detection.ipynb) - train a model to draw bounding boxes surrounding flukes
 10. **!!! Important !!!** - here I switch to fastai master to incorporate a bug fix, will annotate with version once a new release comes out
 11. [fluke detection redux](https://github.com/radekosmulski/whale/blob/master/fluke_detection_redux.ipynb) - better results, less code, works with current fastai master
+
+##KL: Getting started instructions 1/16/2019
+1. source deactivate (always do this if your command line starts with (fastai))?
+2. In fastai: git clone https://github.com/kevinlinke/whale.git
+3. In fastai/whale/env: pip install -r requirements.txt
+4. Download Kaggle json on your computer, then on your computer: scp Downloads/kaggle.json paperspace@<your.ip>:~/.kaggle/kaggle.json
+5. In fastai/whale/data: kaggle competitions download -c humpback-whale-identification
+6. In fastai/whale/data: mkdir train && unzip train.zip -d train
+7. In fastai/whale/data: mkdir test && unzip test.zip -d test
+8. Optional, in fastai/whale/data: rm train.zip && rm test.zip
+9. In fastai/whale: jupyter notebook --generate-config
+10. In fastai/whale: jupyter notebook --no-browser --port=8889 --NotebookApp.allow_remote_access=True
+11. On your computer: ssh -N -L localhost:8888:localhost:8889 paperspace@<your.ip>
+12. Run the first 5 cells of only_known_research
+13. Run oversample
+14. Run resize with SZ = 224
+15. Run resize with SZ = 448
+16. ...
